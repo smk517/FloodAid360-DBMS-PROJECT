@@ -189,9 +189,9 @@ FROM Volunteer
 WHERE Availability = TRUE;
 SELECT Name
 FROM Volunteer
-WHERE Skill = 'Medical Aid'
-AND Location = 'Swat'
-AND Availability = TRUE;
+WHERE Skill LIKE '%Medical%'
+AND Location = 'Swat';
+
 SELECT 
     Donor.Name AS Donor_Name,
     Resource.Type AS Resource_Type,
@@ -385,7 +385,9 @@ ORDER BY ExpiryDate ASC;
 -- 3. Volunteers by skill and location
 SELECT Name, Skill
 FROM Volunteer
-WHERE Skill = 'Medical Aid' AND Location = 'Swat' AND Availability = TRUE;
+WHERE Skill LIKE '%Medical%'
+AND Location = 'Swat';
+
 
 -- 4. Donations summary by donor
 SELECT Donor.Name, SUM(Donation.Amount) AS TotalAmount
